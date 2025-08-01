@@ -9,14 +9,14 @@ import { Suspense } from 'react';
 
 export default async function Page(
     props: {
-        searchParms?: Promise<{
+        searchParams?: Promise<{
             query?: string;
             page?: string;
         }>;
     }) {
-    const searchParms = await props.searchParms;
-    const query = searchParms?.query || '';
-    const currentPage = Number(searchParms?.page) || 1;
+    const searchParams = await props.searchParams;
+    const query = searchParams?.query || '';
+    const currentPage = Number(searchParams?.page) || 1;
     const totalPages = await fetchInvoicesPages(query);
     return (
         <div className="w-full">
